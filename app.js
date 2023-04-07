@@ -16,14 +16,19 @@ let forceX = 0;
 function time () {
     mars.img.style.top = mars.y + 'px';
     mars.img.style.left = mars.x + 'px';
+
     mars.y += mars.vy;
     mars.x += mars.vx;
-    mars.vy += forceY;
-    mars.vx += forceX;
+
+    
     if (mars.y > window.innerWidth - mars.heigth/2) {
         mars.vy = -mars.vy;
+        
+    } else {
+        mars.vy += forceY;
+        mars.vx += forceX;
     }
-    setTimeout(time, fps);
+    
 }
 
-time();
+setInterval(time, fps);
